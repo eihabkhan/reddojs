@@ -2,23 +2,32 @@
 import { ref } from 'vue';
 import { useHistory } from './hooks/use-history';
 
-const {execute, canRedo, canUndo, undo, redo} = useHistory({size: 10})
+const {execute, canRedo, canUndo, undo, redo} = useHistory({size: 100, coalesce: true})
 
 const numbs = ref(0);
+const color = ref('#ffffff');
 
 function addNumb() {
   execute({
     do: () => numbs.value += 1,
-    undo: () => {
-      console.log('undoing from ', numbs, 'to', numbs.value - 1)
-      numbs.value -= 1
-    }
+    undo: () => numbs.value -= 1
   })
 }
 function subNumb() {
   execute({
     do: () => numbs.value --,
     undo: () => numbs.value ++
+  })
+}
+
+function changeColor(e: Event) {
+  let oldValue = color.value
+  const newValue  = (e.target as HTMLInputElement).value
+  
+  execute({
+    key: 'color-change',
+    do: () => color.value = newValue,
+    undo: () => color.value = oldValue,
   })
 }
 </script>
@@ -32,11 +41,17 @@ function subNumb() {
     <button :onClick="addNumb" >+</button>
     <button :onClick="subNumb" >-</button>
     <button>{{ numbs }}</button>
+    
   </div>
 
   <div class="">
     <button :onClick="undo" :disabled="!canUndo">Undo</button>
     <button :onClick="redo" :disabled="!canRedo">Redo</button>
+  </div>
+
+  <div>
+    <input @input="changeColor" :value="color" type="color" id="foreground" name="foreground"  />
+    <label for="foreground">Foreground color</label>
   </div>
 </template>
 
@@ -53,5 +68,9 @@ function subNumb() {
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+
+button[disabled] {
+  opacity: 0.4;
 }
 </style>

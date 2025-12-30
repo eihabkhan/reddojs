@@ -1,7 +1,6 @@
 import type { Command, HistoryOptions } from '@core/types'
 
-export function createHistory(options?: HistoryOptions) {
-  const size = options?.size || 30
+export function createHistory({ size = 30, coalesce = true }: HistoryOptions) {
   const undoStack: Command[] = []
   const redoStack: Command[] = []
   const listeners = new Set<() => void>()
@@ -29,12 +28,27 @@ export function createHistory(options?: HistoryOptions) {
     undo() {
       const cmd = undoStack.pop()
 
-      if (cmd) {
+      if (!cmd)
+        return
+
+      if (coalesce && cmd.key) {
+        const redoFn = cmd.do
+        let undoFn = cmd.undo
+
+        while (undoStack.length > 0 && undoStack.at(-1)?.key === cmd.key) {
+          const prev = undoStack.pop()!
+          undoFn = prev.undo
+        }
+
+        undoFn()
+        redoStack.push({ key: cmd.key, do: redoFn, undo: undoFn })
+      }
+      else {
         cmd.undo()
         redoStack.push(cmd)
-
-        notify()
       }
+
+      notify()
     },
     redo() {
       const cmd = redoStack.pop()

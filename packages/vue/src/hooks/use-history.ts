@@ -3,7 +3,7 @@ import { createHistory } from '@reddo/core'
 import { onUnmounted, ref } from 'vue'
 
 export function useHistory(options?: HistoryOptions) {
-  const history = createHistory(options)
+  const history = createHistory(options ?? {})
   const canUndo = ref(false)
   const canRedo = ref(false)
 
