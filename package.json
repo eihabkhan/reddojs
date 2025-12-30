@@ -23,10 +23,13 @@
     "test": "vitest",
     "prepare": "husky",
     "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "bump": "bumpp package.json packages/*/package.json --commit \"chore: release v\" --push --tag",
+    "release": "pnpm bump"
   },
   "dependencies": {
-    "@texel/color": "^1.1.10"
+    "@texel/color": "^1.1.10",
+    "bumpp": "^10.3.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.2.2",
