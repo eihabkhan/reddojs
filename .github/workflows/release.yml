@@ -35,3 +35,5 @@ jobs:
 
       - run: npm i -g npm@latest
       - run: pnpm -r --dir packages --no-git-checks publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
