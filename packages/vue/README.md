@@ -1,18 +1,18 @@
-# @reddo/vue
+# @reddojs/vue
 
-Vue composable for undo/redo functionality powered by [@reddo/core](https://github.com/YOUR_USERNAME/reddo).
+Vue composable for undo/redo functionality powered by [@reddojs/core](https://github.com/YOUR_USERNAME/reddo).
 
 ## Installation
 
 ```bash
-npm install @reddo/vue @reddo/core
+npm install @reddojs/vue @reddojs/core
 ```
 
 ## Usage
 
 ```vue
 <script setup lang="ts">
-import { useHistory } from '@reddo/vue'
+import { useHistory } from '@reddojs/vue'
 
 const { execute, undo, redo, canUndo, canRedo, clear } = useHistory({
   size: 100 // optional: max history size
@@ -44,7 +44,7 @@ execute({
 
 Returns an object with the following properties:
 
-- `history` - The underlying history instance from @reddo/core
+- `history` - The underlying history instance from @reddojs/core
 - `canUndo` - Reactive ref indicating if undo is available
 - `canRedo` - Reactive ref indicating if redo is available
 - `execute(command)` - Execute a command and add it to history

@@ -13,7 +13,7 @@ export default defineConfig({
       fileName: format => `index.${format === 'es' ? 'js' : 'cjs'}`,
     },
     rollupOptions: {
-      external: ['vue', '@reddo/core'],
+      external: ['vue', '@reddojs/core'],
       output: {
         globals: {
           vue: 'Vue',

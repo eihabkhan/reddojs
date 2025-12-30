@@ -1,2 +1,2 @@
 export { useHistory } from './hooks/use-history'
-export type { Command, HistoryOptions } from '@reddo/core'
+export type { Command, HistoryOptions } from '@reddojs/core'

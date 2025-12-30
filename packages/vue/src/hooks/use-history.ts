@@ -1,5 +1,5 @@
-import type { Command, HistoryOptions } from '@reddo/core'
-import { createHistory } from '@reddo/core'
+import type { Command, HistoryOptions } from '@reddojs/core'
+import { createHistory } from '@reddojs/core'
 import { onUnmounted, ref } from 'vue'
 
 export function useHistory(options?: HistoryOptions) {
