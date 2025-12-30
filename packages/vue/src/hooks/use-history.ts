@@ -16,11 +16,11 @@ export function useHistory(options?: HistoryOptions) {
 
   return {
     history,
+    canUndo,
+    canRedo,
     execute: (cmd: Command) => history.execute(cmd),
     undo: () => history.undo(),
     redo: () => history.redo(),
-    canUndo,
-    canRedo,
     clear: () => history.clear(),
   }
 }

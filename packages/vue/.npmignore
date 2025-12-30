@@ -1,0 +1,19 @@
+src/
+node_modules/
+.vscode/
+.DS_Store
+*.log
+*.tsbuildinfo
+
+# Keep only dist
+index.html
+public/
+vite.config.ts
+tsconfig*.json
+
+# Dev files
+src/main.ts
+src/App.vue
+src/components/
+src/assets/
+src/style.css
