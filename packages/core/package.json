@@ -2,7 +2,19 @@
   "name": "@reddojs/core",
   "type": "module",
   "version": "0.0.1",
-  "private": true,
+  "description": "Core undo/redo functionality for reddo",
+  "author": "Eihab Khan <yo@eihab.me>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eihabkhan/reddojs"
+  },
+  "keywords": [
+    "undo",
+    "redo",
+    "history",
+    "reddo"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
