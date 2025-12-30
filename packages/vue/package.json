@@ -1,5 +1,5 @@
 {
-  "name": "@reddo/vue",
+  "name": "@reddojs/vue",
   "type": "module",
   "version": "0.0.1",
   "description": "Vue composable for undo/redo functionality",
@@ -40,7 +40,7 @@
     "vue": "^3.3.0"
   },
   "dependencies": {
-    "@reddo/core": "workspace:*"
+    "@reddojs/core": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",

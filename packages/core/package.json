@@ -1,5 +1,5 @@
 {
-  "name": "@reddo/core",
+  "name": "@reddojs/core",
   "type": "module",
   "version": "0.0.1",
   "private": true,

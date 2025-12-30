@@ -57,7 +57,7 @@ importers:
 
   packages/vue:
     dependencies:
-      '@reddo/core':
+      '@reddojs/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
