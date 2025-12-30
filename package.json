@@ -1,0 +1,47 @@
+{
+  "name": "reddo",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.20.0",
+  "description": "A Headless components for all your colorful needs.",
+  "author": "Eihab Khan <yo@eihab.me>",
+  "keywords": [
+    "svelte",
+    "vue",
+    "headless",
+    "unstyled",
+    "color-picker"
+  ],
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "scripts": {
+    "test": "vitest",
+    "prepare": "husky",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "dependencies": {
+    "@texel/color": "^1.1.10"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.2.2",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@types/node": "^22.10.5",
+    "eslint": "^9.34.0",
+    "husky": "^9.1.7",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3",
+    "vitest": "^3.2.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}
