@@ -1,5 +1,28 @@
 import type { Command, HistoryOptions } from '@core/types'
 
+/**
+ * Creates a history manager for undo/redo functionality.
+ *
+ * @param options - Configuration options for the history manager
+ * @param options.size - Maximum number of commands to keep in history (default: 30)
+ * @param options.coalesce - Whether to merge consecutive commands with the same key during undo (default: true)
+ * @returns A history manager instance with methods for managing command history
+ *
+ * @example
+ * ```ts
+ * const history = createHistory({ size: 50, coalesce: true })
+ *
+ * history.execute({
+ *   key: 'typing',
+ *   do: () => setText('hello'),
+ *   undo: () => setText('')
+ * })
+ *
+ * if (history.canUndo) {
+ *   history.undo()
+ * }
+ * ```
+ */
 export function createHistory({ size = 30, coalesce = true }: HistoryOptions) {
   const undoStack: Command[] = []
   const redoStack: Command[] = []
@@ -10,9 +33,24 @@ export function createHistory({ size = 30, coalesce = true }: HistoryOptions) {
   }
 
   return {
+    /**
+     * Maximum number of commands in the history.
+     */
     size,
+    /**
+     * Whether there are commands available to undo.
+     */
     get canUndo() { return undoStack.length > 0 },
+    /**
+     * Whether there are commands available to redo.
+     */
     get canRedo() { return redoStack.length > 0 },
+    /**
+     * Executes a command and adds it to the history.
+     * Clears the redo stack.
+     *
+     * @param cmd - The command to execute
+     */
     execute(cmd: Command) {
       cmd.do()
       undoStack.push(cmd)
@@ -25,6 +63,10 @@ export function createHistory({ size = 30, coalesce = true }: HistoryOptions) {
 
       notify()
     },
+    /**
+     * Undoes the most recent command.
+     * If coalescing is enabled, consecutive commands with the same key are merged.
+     */
     undo() {
       const cmd = undoStack.pop()
 
@@ -50,6 +92,9 @@ export function createHistory({ size = 30, coalesce = true }: HistoryOptions) {
 
       notify()
     },
+    /**
+     * Redoes the most recently undone command.
+     */
     redo() {
       const cmd = redoStack.pop()
 
@@ -60,11 +105,20 @@ export function createHistory({ size = 30, coalesce = true }: HistoryOptions) {
         notify()
       }
     },
+    /**
+     * Clears all undo and redo history.
+     */
     clear() {
       undoStack.length = redoStack.length = 0
 
       notify()
     },
+    /**
+     * Subscribes to history changes.
+     *
+     * @param fn - Callback function to be called when history changes
+     * @returns Unsubscribe function
+     */
     subscribe(fn: () => void) {
       listeners.add(fn)
 
