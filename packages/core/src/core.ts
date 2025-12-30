@@ -32,9 +32,9 @@ export function createHistory(options?: HistoryOptions) {
       if (cmd) {
         cmd.undo()
         redoStack.push(cmd)
-      }
 
-      notify()
+        notify()
+      }
     },
     redo() {
       const cmd = redoStack.pop()
@@ -42,9 +42,9 @@ export function createHistory(options?: HistoryOptions) {
       if (cmd) {
         cmd.do()
         undoStack.push(cmd)
-      }
 
-      notify()
+        notify()
+      }
     },
     clear() {
       undoStack.length = redoStack.length = 0
