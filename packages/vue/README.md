@@ -44,7 +44,6 @@ execute({
 
 Returns an object with the following properties:
 
-- `history` - The underlying history instance from @reddojs/core
 - `canUndo` - Reactive ref indicating if undo is available
 - `canRedo` - Reactive ref indicating if redo is available
 - `execute(command)` - Execute a command and add it to history
