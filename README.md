@@ -10,7 +10,6 @@ A tiny undo/redo utility package for JavaScript, React, Vue, and Svelte.
 * **Framework agnostic** Core works anywhere, with official React, Vue & Svelte adapters
 * **TypeScript first** Fully typed.
 * **Command coalescing** Automatically groups related commands (e.g., typing in a text field, changing a color in a color picker)
-* **Configurable history size** Default 30, set your own limit
 
 ## Table of Content
 
@@ -63,8 +62,8 @@ A command object represents an action that can be executed and undone.
 
 ```typescript
 interface Command {
-  key?: string     // Optional key to group related commands for coalescing
-  do: () => void   // Function to execute the command
+  key?: string // Optional key to group related commands for coalescing
+  do: () => void // Function to execute the command
   undo: () => void // Function to undo the command
 }
 ```
@@ -81,7 +80,7 @@ Configuration options for the history manager.
 
 ```typescript
 interface HistoryOptions {
-  size?: number      // Max commands in history (default: 30)
+  size?: number // Max commands in history (default: 30)
   coalesce?: boolean // Merge consecutive commands with same key (default: true)
 }
 ```
@@ -109,8 +108,8 @@ All adapters (`useHistory`) return:
 ### React
 
 ```tsx
-import { useState } from 'react'
 import { useHistory } from '@reddojs/react'
+import { useState } from 'react'
 
 function App() {
   const { execute, undo, redo, canUndo, canRedo } = useHistory({ size: 100 })
@@ -139,7 +138,10 @@ function App() {
     <div>
       <button onClick={undo} disabled={!canUndo}>Undo</button>
       <button onClick={redo} disabled={!canRedo}>Redo</button>
-      <button onClick={increment}>Count: {count}</button>
+      <button onClick={increment}>
+        Count:
+        {count}
+      </button>
       <input type="color" value={color} onChange={changeColor} />
     </div>
   )
