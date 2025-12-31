@@ -8,6 +8,12 @@ Framework-agnostic undo/redo history management.
 npm install @reddojs/core
 ```
 
+Or use via CDN:
+
+```js
+import { createHistory } from 'https://cdn.jsdelivr.net/npm/@reddojs/core@latest/+esm'
+```
+
 ## Usage
 
 ```ts

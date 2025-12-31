@@ -5,7 +5,13 @@ Svelte store for undo/redo functionality powered by [@reddojs/core](https://gith
 ## Installation
 
 ```bash
-npm install @reddojs/core @reddojs/svelte
+npm install @reddojs/svelte
+```
+
+Or use via CDN:
+
+```js
+import { useHistory } from 'https://cdn.jsdelivr.net/npm/@reddojs/svelte@latest/+esm'
 ```
 
 ## Usage

@@ -5,7 +5,13 @@ React hook for undo/redo functionality powered by [@reddojs/core](https://github
 ## Installation
 
 ```bash
-npm install @reddojs/core @reddojs/react
+npm install @reddojs/react
+```
+
+Or use via CDN:
+
+```js
+import { useHistory } from 'https://cdn.jsdelivr.net/npm/@reddojs/react@latest/+esm'
 ```
 
 ## Usage

@@ -5,7 +5,13 @@ Vue composable for undo/redo functionality powered by [@reddojs/core](https://gi
 ## Installation
 
 ```bash
-npm install @reddojs/core @reddojs/vue
+npm install @reddojs/vue
+```
+
+Or use via CDN:
+
+```js
+import { useHistory } from 'https://cdn.jsdelivr.net/npm/@reddojs/vue@latest/+esm'
 ```
 
 ## Usage
