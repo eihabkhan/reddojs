@@ -11,22 +11,21 @@ A tiny undo/redo utility package for JavaScript, React, Vue, and Svelte.
 * **TypeScript first** Fully typed.
 * **Command coalescing** Automatically groups related commands (e.g., typing in a text field, changing a color in a color picker)
 
-## Table of Content
+## Table of Contents
 
-* [Table of Contents](#table-of-contents)
-* [Installation](#comparison-with-uuid)
-  * [React](#comparison-with-uuid)
-  * [Vue](#comparison-with-uuid)
-  * [Svelte](#comparison-with-uuid)
-  * [Vanilla](#comparison-with-uuid)
-* [API Reference](#benchmark)
-  * [Command](#blocking)
-  * [HistoryOptions](#non-secure)
+* [Installation](#installation)
+  * [React](#react)
+  * [Vue](#vue)
+  * [Svelte](#svelte)
+  * [Vanilla](#vanilla)
+* [API Reference](#api-reference)
+  * [Command](#command)
+  * [HistoryOptions](#historyoptions)
 * [Usage](#usage)
-  * [React](#react-native)
-  * [Vue](#pouchdb-and-couchdb)
-  * [Svelte](#cli)
-  * [Vanilla](#react)
+  * [React](#react-1)
+  * [Vue](#vue-1)
+  * [Svelte](#svelte-1)
+  * [Vanilla](#vanilla-1)
 
 ## Installation
 

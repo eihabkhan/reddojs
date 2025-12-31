@@ -40,6 +40,20 @@ function App() {
 }
 ```
 
+### Command Coalescing
+
+Group related commands using a `key` to merge them during undo:
+
+```tsx
+// These commands will be merged into one undo action
+execute({ key: 'typing', do: () => setText('h'), undo: () => setText('') })
+execute({ key: 'typing', do: () => setText('he'), undo: () => setText('h') })
+execute({ key: 'typing', do: () => setText('hel'), undo: () => setText('he') })
+
+// Single undo reverts all three
+undo() // setText('')
+```
+
 ## API
 
 ### `useHistory(options?)`
