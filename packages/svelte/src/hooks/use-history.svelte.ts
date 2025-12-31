@@ -16,7 +16,6 @@ export function useHistory(options?: HistoryOptions) {
   onDestroy(() => unsub())
 
   return {
-    history,
     get canUndo() {
       return canUndo
     },

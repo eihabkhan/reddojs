@@ -17,7 +17,6 @@ export function useHistory(options?: HistoryOptions) {
   }, [history])
 
   return {
-    history,
     canUndo,
     canRedo,
     execute: (cmd: Command) => history.execute(cmd),
