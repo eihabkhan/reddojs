@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+# @reddojs/react
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React hook for undo/redo functionality powered by [@reddojs/core](https://github.com/YOUR_USERNAME/reddo).
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install @reddojs/core @reddojs/react
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Usage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```tsx
+import { useHistory } from '@reddojs/react'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
+function App() {
+  const { execute, undo, redo, canUndo, canRedo, clear } = useHistory({
+    size: 100 // optional: max history size
+  })
+
+  // Execute a command
+  const handleExecute = () => {
+    execute({
+      do: () => {
+        // do something
       },
-      // other options...
-    },
-  },
-])
+      undo: () => {
+        // undo it
+      }
+    })
+  }
+
+  return (
+    <div>
+      <button onClick={undo} disabled={!canUndo}>Undo</button>
+      <button onClick={redo} disabled={!canRedo}>Redo</button>
+      <button onClick={clear}>Clear History</button>
+    </div>
+  )
+}
 ```
+
+## API
+
+### `useHistory(options?)`
+
+Returns an object with the following properties:
+
+- `canUndo` - Boolean indicating if undo is available
+- `canRedo` - Boolean indicating if redo is available
+- `execute(command)` - Execute a command and add it to history
+- `undo()` - Undo the last command
+- `redo()` - Redo the last undone command
+- `clear()` - Clear the history
+
+### Options
+
+- `size?: number` - Maximum number of commands to keep in history (default: 30)
+- `coalesce?: boolean` - Whether to merge consecutive commands with the same key during undo (default: true)
+
+## License
+
+MIT
