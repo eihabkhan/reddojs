@@ -1,8 +1,8 @@
 {
-  "name": "@reddojs/vue",
+  "name": "@reddojs/react",
   "type": "module",
-  "version": "0.0.2",
-  "description": "Vue composable for undo/redo functionality",
+  "version": "0.0.1",
+  "description": "React hook for undo/redo functionality",
   "author": "",
   "license": "MIT",
   "repository": {
@@ -10,8 +10,8 @@
     "url": "https://github.com/eihabkhan/reddojs"
   },
   "keywords": [
-    "vue",
-    "composable",
+    "react",
+    "hook",
     "undo",
     "redo",
     "history",
@@ -32,23 +32,31 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
     "preview": "vite preview",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "vue": "^3.3.0"
+    "react": "^18.0.0 || ^19.0.0"
   },
   "dependencies": {
     "@reddojs/core": "workspace:*"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
-    "@vitejs/plugin-vue": "^6.0.1",
-    "@vue/tsconfig": "^0.8.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "typescript": "~5.9.3",
-    "vite": "^7.2.4",
-    "vue": "^3.5.24",
-    "vue-tsc": "^3.1.4"
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.4"
   }
 }
