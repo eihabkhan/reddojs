@@ -53,6 +53,30 @@ npm install @reddojs/svelte
 npm install @reddojs/core
 ```
 
+### CDN
+
+You can also use Reddo.js via CDN:
+
+```js
+// React
+import { useHistory } from 'https://cdn.jsdelivr.net/npm/@reddojs/react@latest/+esm'
+```
+
+```js
+// Vue
+import { useHistory } from 'https://cdn.jsdelivr.net/npm/@reddojs/vue@latest/+esm'
+```
+
+```js
+// Svelte
+import { useHistory } from 'https://cdn.jsdelivr.net/npm/@reddojs/svelte@latest/+esm'
+```
+
+```js
+// Vanilla
+import { createHistory } from 'https://cdn.jsdelivr.net/npm/@reddojs/core@latest/+esm'
+```
+
 ## API Reference
 
 ### Command
