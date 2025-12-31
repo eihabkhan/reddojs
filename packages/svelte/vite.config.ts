@@ -17,7 +17,7 @@ export default defineConfig({
       fileName: format => `index.${format === 'es' ? 'js' : 'cjs'}`,
     },
     rollupOptions: {
-      external: ['svelte', '@reddojs/core'],
+      external: ['svelte', /^svelte\//, '@reddojs/core'],
       output: {
         globals: {
           svelte: 'Svelte',
