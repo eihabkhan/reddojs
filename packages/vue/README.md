@@ -5,7 +5,7 @@ Vue composable for undo/redo functionality powered by [@reddojs/core](https://gi
 ## Installation
 
 ```bash
-npm install @reddojs/vue @reddojs/core
+npm install @reddojs/core @reddojs/vue
 ```
 
 ## Usage
@@ -54,7 +54,7 @@ Returns an object with the following properties:
 
 ### Options
 
-- `size?: number` - Maximum number of commands to keep in history (default: Infinity)
+- `size?: number` - Maximum number of commands to keep in history (default: 30)
 - `coalesce?: boolean` - Whether to merge consecutive commands with the same key during undo (default: true)
 
 ## License
