@@ -1,4 +1,4 @@
-# Reddo
+# Reddo.js
 
 <img width="148" height="132" alt="Reddojs" src="https://github.com/user-attachments/assets/5231621c-d738-498e-878c-e0c2ae8c4746" align="right" />
 
