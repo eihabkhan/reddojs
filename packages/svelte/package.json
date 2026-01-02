@@ -1,7 +1,7 @@
 {
   "name": "@reddojs/svelte",
   "type": "module",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Svelte composable for undo/redo functionality",
   "author": "",
   "license": "MIT",
