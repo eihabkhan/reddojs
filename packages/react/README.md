@@ -1,6 +1,6 @@
 # @reddojs/react
 
-React hook for undo/redo functionality powered by [@reddojs/core](https://github.com/eihabkhan/reddojs).
+React hook for undo/redo functionality powered by [@reddojs/core](https://www.npmjs.com/package/@reddojs/core).
 
 ## Installation
 
