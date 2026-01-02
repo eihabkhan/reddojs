@@ -1,6 +1,6 @@
 # @reddojs/vue
 
-Vue composable for undo/redo functionality powered by [@reddojs/core](https://github.com/YOUR_USERNAME/reddo).
+Vue composable for undo/redo functionality powered by [@reddojs/core](https://github.com/eihabkhan/reddojs).
 
 ## Installation
 

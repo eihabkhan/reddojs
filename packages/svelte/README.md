@@ -1,6 +1,6 @@
 # @reddojs/svelte
 
-Svelte store for undo/redo functionality powered by [@reddojs/core](https://github.com/YOUR_USERNAME/reddo).
+Svelte store for undo/redo functionality powered by [@reddojs/core](https://github.com/eihabkhan/reddojs).
 
 ## Installation
 
