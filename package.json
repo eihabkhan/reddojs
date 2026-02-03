@@ -4,14 +4,14 @@
   "version": "0.0.8",
   "private": true,
   "packageManager": "pnpm@10.20.0",
-  "description": "A Headless components for all your colorful needs.",
+  "description": "A tiny undo/redo utility package for JavaScript, React, Vue, and Svelte.",
   "author": "Eihab Khan <yo@eihab.me>",
   "keywords": [
     "svelte",
     "vue",
-    "headless",
-    "unstyled",
-    "color-picker"
+    "undo",
+    "redo",
+    "utility"
   ],
   "workspaces": [
     "packages/*"
