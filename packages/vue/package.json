@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.8",
   "description": "Vue composable for undo/redo functionality",
-  "author": "",
+  "author": "Eihab Khan <yo@eihab.me>",
   "license": "MIT",
   "repository": {
     "type": "git",
