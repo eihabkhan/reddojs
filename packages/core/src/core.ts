@@ -1,5 +1,7 @@
 import type { Command, HistoryOptions } from '@core/types'
 
+export type History = ReturnType<typeof createHistory>
+
 /**
  * Creates a history manager for undo/redo functionality.
  *
@@ -40,11 +42,15 @@ export function createHistory({ size = 30, coalesce = true }: HistoryOptions) {
     /**
      * Whether there are commands available to undo.
      */
-    get canUndo() { return undoStack.length > 0 },
+    get canUndo() {
+      return undoStack.length > 0
+    },
     /**
      * Whether there are commands available to redo.
      */
-    get canRedo() { return redoStack.length > 0 },
+    get canRedo() {
+      return redoStack.length > 0
+    },
     /**
      * Executes a command and adds it to the history.
      * Clears the redo stack.
@@ -84,8 +90,7 @@ export function createHistory({ size = 30, coalesce = true }: HistoryOptions) {
 
         undoFn()
         redoStack.push({ key: cmd.key, do: redoFn, undo: undoFn })
-      }
-      else {
+      } else {
         cmd.undo()
         redoStack.push(cmd)
       }
