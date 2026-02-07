@@ -1,3 +1,5 @@
+export type { History } from '@core/core'
+
 /**
  * Represents a command that can be executed, undone, and redone.
  */
