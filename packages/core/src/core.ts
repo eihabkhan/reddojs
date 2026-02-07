@@ -36,7 +36,21 @@ export function createHistory({ size = 30, coalesce = true }: HistoryOptions) {
     /**
      * Maximum number of commands in the history.
      */
-    size,
+    get size() {
+      return size
+    },
+    /**
+     * Curren number of Undo commands in the stack
+     */
+    get undoLength() {
+      return undoStack.length
+    },
+    /**
+     * Curren number of Redo commands in the stack
+     */
+    get redoLength() {
+      return redoStack.length
+    },
     /**
      * Whether there are commands available to undo.
      */
